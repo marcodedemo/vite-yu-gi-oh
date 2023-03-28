@@ -43,7 +43,11 @@ import AppCards from './components/AppCards.vue';
 
     <h1>Yu Gi Oh Cards</h1>
 
-    <AppCards></AppCards>
+    <div id="loading" v-if="store.cards.length < 50">
+      Loading...
+    </div>
+
+    <AppCards v-else></AppCards>
     
   </div>
 </template>
@@ -56,6 +60,10 @@ import AppCards from './components/AppCards.vue';
 h1{
   text-align: center;
   padding-top: 50px;
+}
+
+#loading{
+  text-align: center;
 }
 
 </style>
