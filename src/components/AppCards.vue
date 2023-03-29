@@ -27,7 +27,31 @@ import {store} from '../store';
         
         search(){
 
-            this.store.APIsearchedInfo = "&fname=" + this.store.cardName;
+            // se la ricerca ha entrambi i parametri
+            if (this.store.cardName != "" && this.store.cardRank != "") {
+                
+                // inserisco entrambi i parametri nella ricerca
+                this.store.APIsearchedInfo = "&fname=" + this.store.cardName + "&level=" + this.store.cardRank;
+
+            // altrimenti se la ricerca comprende solo il nome
+            } else if(this.store.cardName != "" && this.store.cardRank == ""){
+
+                // filtro solo tramite il nome
+                this.store.APIsearchedInfo = "&fname=" + this.store.cardName;
+
+            // altrimenti se la ricerca comprende solo il rank
+            }else if(this.store.cardName == "" && this.store.cardRank != ""){
+
+                // filtro solo tramite il rank
+                this.store.APIsearchedInfo = "&level=" + this.store.cardRank;
+
+            }else{
+                
+                // se entrambi sono vuoti lascio la richiesta API standard
+                this.store.APIsearchedInfo = "";
+            }
+
+            
 
             axios.get(`${this.store.APIcall}${this.store.APIsearchedInfo}`).then((res)=>{
                 
