@@ -52,6 +52,8 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+
+        font-size: .8em;
     }
 }
 
