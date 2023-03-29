@@ -4,6 +4,8 @@ import {store} from './store';
 import axios from 'axios';
 
 import AppCards from './components/AppCards.vue';
+import AppLoader from './components/AppLoader.vue';
+
 
   export default{
 
@@ -18,6 +20,7 @@ import AppCards from './components/AppCards.vue';
 
     components:{
       AppCards,
+      AppLoader,
     },
     
     created(){
@@ -43,10 +46,7 @@ import AppCards from './components/AppCards.vue';
 
     <h1>Yu Gi Oh Cards</h1>
 
-    <div id="loading" v-if="store.cards.length < 50">
-      Loading...
-    </div>
-
+    <AppLoader v-if="!store.cards.length > 0 "></AppLoader>
     <AppCards v-else></AppCards>
     
   </div>
@@ -62,8 +62,6 @@ h1{
   padding-top: 50px;
 }
 
-#loading{
-  text-align: center;
-}
+
 
 </style>

@@ -1,13 +1,11 @@
 <script>
 
-    import {store} from '../store';
 
 
   export default{
     data(){
       return{
         
-        store,
 
       }
     },
@@ -44,7 +42,7 @@
     display: flex;
     flex-direction: column;
 
-    width: calc(100% / 5 - 20px * 6 / 5);
+    width: calc(100% / 5 - 20px * 5 / 6);
 
     img{
         width: 100%;
