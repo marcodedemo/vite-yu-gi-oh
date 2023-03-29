@@ -28,8 +28,6 @@ import AppLoader from './components/AppLoader.vue';
 
       axios.get(this.store.APIcall).then((res)=>{
 
-        console.log(res.data.data);
-
         this.store.cards = res.data.data;
 
         this.store.generatedCardNumber = this.store.cards.length;

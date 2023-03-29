@@ -47,10 +47,6 @@
                 // filtro solo tramite il rank
                 this.store.APIsearchedInfo = "&level=" + this.store.cardRank;
 
-            }else{
-                
-                // se entrambi sono vuoti lascio la richiesta API standard
-                this.store.APIsearchedInfo = "";
             }
 
             
@@ -61,6 +57,12 @@
 
                 this.store.generatedCardNumber = this.store.cards.length;
                 
+            }).catch((error)=>{
+
+                this.store.APIsearchedInfo = "";
+
+                alert("Nessuna carta trovata",error);
+
             })
         }
     },
@@ -92,7 +94,7 @@
     flex-wrap: wrap;
     gap: 20px;
 
-    padding: 50px;
+    padding: 50px 100px;
 }
 
 </style>
