@@ -46,7 +46,7 @@ import AppLoader from './components/AppLoader.vue';
 
     <h1>Yu Gi Oh Cards</h1>
 
-    <AppLoader v-if="!store.cards.length > 0 "></AppLoader>
+    <AppLoader v-if="!store.cards.length > 0"></AppLoader>
     <AppCards v-else></AppCards>
     
   </div>
