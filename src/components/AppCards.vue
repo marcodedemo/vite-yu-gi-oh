@@ -1,10 +1,11 @@
 <script>
 
     import axios from 'axios';
-import {store} from '../store';
+    import {store} from '../store';
 
     import CardItem from './CardItem.vue';
     import CardSearch from './CardSearch.vue';
+    import GeneratedCards from './GeneratedCards.vue';
 
 
   export default{
@@ -20,6 +21,7 @@ import {store} from '../store';
     components:{
         CardItem,
         CardSearch,
+        GeneratedCards,
 
     },
 
@@ -56,6 +58,8 @@ import {store} from '../store';
             axios.get(`${this.store.APIcall}${this.store.APIsearchedInfo}`).then((res)=>{
                 
                 this.store.cards = res.data.data;
+
+                this.store.generatedCardNumber = this.store.cards.length;
                 
             })
         }
@@ -68,6 +72,9 @@ import {store} from '../store';
 <template>
 
     <CardSearch @charaterSearch="search()"></CardSearch>
+
+    <GeneratedCards></GeneratedCards>
+
 
   <div id="card-container">
 

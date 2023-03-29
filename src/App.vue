@@ -30,7 +30,9 @@ import AppLoader from './components/AppLoader.vue';
 
         console.log(res.data.data);
 
-        this.store.cards = res.data.data
+        this.store.cards = res.data.data;
+
+        this.store.generatedCardNumber = this.store.cards.length;
 
       });
     }
